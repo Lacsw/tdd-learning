@@ -1,9 +1,11 @@
+import time
+
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
-import unittest
 
-class NewVisitorTest(unittest.TestCase):
+
+class NewVisitorTest(LiveServerTestCase):
     """тест нового посетителя"""
 
     def setUp(self):
@@ -22,7 +24,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrivev_it_latter(self):
         """тест: можно начать список и получить его позже"""
         #Домашняя страница
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         #Заголовок To-Do
         self.assertIn('To-Do', self.browser.title)
@@ -66,5 +68,3 @@ class NewVisitorTest(unittest.TestCase):
 
         # Удовлетворенная, она снова ложится спать
 
-if __name__ == '__main__':
-    unittest.main(warnings="ignore")
