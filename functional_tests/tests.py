@@ -105,7 +105,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Фрэнсис получает уникальный URL-адрес
         francis_list_url = self.browser.current_url
-        self.assertRegex(francis_list_url, '/list/.+')
+        self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
 
         # Опять таки, нет ни следа от списка Эдит
